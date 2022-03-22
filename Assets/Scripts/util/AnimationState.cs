@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Reflection;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class AnimationState
@@ -32,6 +33,11 @@ public class AnimationState
             }
         }
 
+        ChangeState(state);
+    }
+
+    public void ChangeState(string state)
+    {
         if (String.IsNullOrEmpty(state)) return;
         if (currentState == state) return;
 
