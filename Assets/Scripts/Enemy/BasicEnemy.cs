@@ -10,6 +10,7 @@ public class BasicEnemy : MonoBehaviour
     private bool seesPlayer;
     private bool canMove = true;
     private bool isAttacking;
+    private Vector3 facingDirection;
 
     private Transform player;
 
@@ -39,7 +40,11 @@ public class BasicEnemy : MonoBehaviour
     private float sum = 0;
 
     void Update()
-    {
+    { 
+        facingDirection = Vector3.right;
+        if (spriteRenderer.flipX)
+            facingDirection = Vector3.left;
+
         counter++;
         sum += agent.velocity.magnitude;
 
@@ -64,7 +69,7 @@ public class BasicEnemy : MonoBehaviour
             {
                 isAttacking = true;
                 animationState.ChangeState(name + "_Attack");
-                Invoke("StopAttack", 0.4f);
+                Attack();
             }
 
             if (player.position.x - transform.position.x < 0) spriteRenderer.flipX = true;
@@ -90,6 +95,12 @@ public class BasicEnemy : MonoBehaviour
         animationState.ChangeState(name + "_Idle");
     }
 
+    private void Attack()
+    {
+
+        Invoke("StopAttack", 0.4f);
+    }
+
     private IEnumerator Move()
     {
         Vector2 agentPos = new Vector2(transform.position.x, transform.position.y);
@@ -112,5 +123,8 @@ public class BasicEnemy : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, enemyData.MoveDistance);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(transform.position + facingDirection * 0.25f, new Vector3(0.75f, 1.25f, 0f));
     }
 }
