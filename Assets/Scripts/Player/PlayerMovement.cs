@@ -72,5 +72,7 @@ enum PlayerAnimationState
     [Description("Player_Walk")]
     Walking,
     [Description("Player_Attack")]
-    Attacking
+    Attacking,
+    [Description("Player_Death")]
+    Dead
 }
