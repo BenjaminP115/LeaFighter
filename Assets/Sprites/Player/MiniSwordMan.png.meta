@@ -4,34 +4,34 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 8174098430123861899
-    second: MiniSwordMan_0
+    second: Idle1
   - first:
       213: -5544229937379784404
-    second: MiniSwordMan_1
+    second: Idle2
   - first:
       213: -250838222661855709
-    second: MiniSwordMan_2
+    second: Idle3
   - first:
       213: -8454521358705239570
-    second: MiniSwordMan_3
+    second: Idle4
   - first:
       213: 889433626851667271
-    second: MiniSwordMan_4
+    second: Walk1
   - first:
       213: 4829824714103737065
-    second: MiniSwordMan_5
+    second: Walk2
   - first:
       213: -6476934913726316661
-    second: MiniSwordMan_6
+    second: Walk3
   - first:
       213: 2841752544089333437
-    second: MiniSwordMan_7
+    second: Walk4
   - first:
       213: -8742341911821893509
-    second: MiniSwordMan_8
+    second: Walk5
   - first:
       213: -4668702310612612524
-    second: MiniSwordMan_9
+    second: Walk6
   - first:
       213: -6631179822763198230
     second: MiniSwordMan_10
@@ -64,19 +64,19 @@ TextureImporter:
     second: MiniSwordMan_19
   - first:
       213: -7217311071488327769
-    second: MiniSwordMan_20
+    second: Attack1
   - first:
       213: -6987559965317779590
-    second: MiniSwordMan_21
+    second: Attack2
   - first:
       213: -1263751432711080227
-    second: MiniSwordMan_22
+    second: Attack3
   - first:
       213: 8366903370504604036
-    second: MiniSwordMan_23
+    second: Attack4
   - first:
       213: 5591919075094625761
-    second: MiniSwordMan_24
+    second: Attack5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -166,15 +166,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MiniSwordMan_0
+      name: Idle1
       rect:
         serializedVersion: 2
         x: 0
         y: 160
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -187,15 +187,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_1
+      name: Idle2
       rect:
         serializedVersion: 2
         x: 32
         y: 160
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -208,15 +208,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_2
+      name: Idle3
       rect:
         serializedVersion: 2
         x: 64
         y: 160
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,15 +229,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_3
+      name: Idle4
       rect:
         serializedVersion: 2
         x: 96
         y: 160
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,15 +250,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_4
+      name: Walk1
       rect:
         serializedVersion: 2
         x: 0
         y: 128
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -271,15 +271,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_5
+      name: Walk2
       rect:
         serializedVersion: 2
         x: 32
         y: 128
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -292,15 +292,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_6
+      name: Walk3
       rect:
         serializedVersion: 2
         x: 64
         y: 128
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -313,15 +313,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_7
+      name: Walk4
       rect:
         serializedVersion: 2
         x: 96
         y: 128
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -334,15 +334,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_8
+      name: Walk5
       rect:
         serializedVersion: 2
         x: 128
         y: 128
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -355,15 +355,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_9
+      name: Walk6
       rect:
         serializedVersion: 2
         x: 160
         y: 128
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -586,15 +586,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_20
+      name: Attack1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -607,15 +607,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_21
+      name: Attack2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -628,15 +628,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_22
+      name: Attack3
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -649,15 +649,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_23
+      name: Attack4
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -670,15 +670,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniSwordMan_24
+      name: Attack5
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

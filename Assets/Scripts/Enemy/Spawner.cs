@@ -3,31 +3,39 @@ using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Vector2Int enemySpawnAmount;
-    [SerializeField] private GameObject enemyType;
+    [SerializeField] private GameObject[] enemyType;
+    [SerializeField] private Vector2Int[] enemySpawnAmount;
     [SerializeField] private float maxSpawnDistance = 3f;
 
     public float maxWalkDistance = 5f;
     public float maxFollowDistance = 7f;
 
-    private NavMeshAgent agent;
-
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        int spawnAmount = Random.Range(enemySpawnAmount.x, enemySpawnAmount.y + 1);
-        Debug.Log(spawnAmount);
+        int[] spawnAmount = new int[enemySpawnAmount.Length];
+        int spawnAmountMax = 0;
 
-        while (spawnAmount != 0)
+        for (int i = 0; i < spawnAmount.Length; i++)
+        {
+            int amount = Random.Range(enemySpawnAmount[i].x, enemySpawnAmount[i].y + 1);
+            spawnAmount[i] = amount;
+            spawnAmountMax += amount;
+        }
+
+        int index = 0;
+        while (spawnAmountMax != 0)
         {
             Vector2 agentPos = new Vector2(transform.position.x, transform.position.y);
             Vector3 randPos = agentPos + Random.insideUnitCircle * maxSpawnDistance;
 
-            NavMeshPath path = new NavMeshPath();
-            if (agent.CalculatePath(randPos, path) && path.status == NavMeshPathStatus.PathComplete)
+            if (NavMesh.SamplePosition(randPos, out NavMeshHit hit, maxSpawnDistance, NavMesh.AllAreas))
             {
-                Instantiate(enemyType, randPos, Quaternion.Euler(90, 0, 0), transform);
-                spawnAmount--;
+                Instantiate(enemyType[index], hit.position, Quaternion.Euler(0, 0, 0), transform);
+                spawnAmountMax--;
+                spawnAmount[index]--;
+
+                if (spawnAmount[index] == 0)
+                    index++;
             }
         }
     }

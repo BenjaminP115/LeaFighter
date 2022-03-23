@@ -1,5 +1,4 @@
 using System.Collections;
-using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,10 +7,12 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private new string name;
     [SerializeField] private EnemyData enemyData;
 
-    private Transform player;
-    private bool seesPlayer = false;
+    private bool seesPlayer;
     private bool canMove = true;
-    private Vector3 spawnPos;
+    private bool isAttacking;
+
+    private Transform player;
+
     private NavMeshAgent agent;
     private Animator animator;
     private AnimationState animationState;
@@ -20,8 +21,10 @@ public class BasicEnemy : MonoBehaviour
 
     void Start()
     {
+        parent = transform.parent.GetComponent<Spawner>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -29,23 +32,40 @@ public class BasicEnemy : MonoBehaviour
 
         animationState = new AnimationState(animator);
 
-        spawnPos = transform.parent.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Awake()
-    {
-        parent = transform.parent.GetComponent<Spawner>();
-    }
+    private int counter = 0;
+    private float sum = 0;
 
     void Update()
     {
-        if ((player.position - transform.position).magnitude <= enemyData.DetectionDistance && (player.position - spawnPos).magnitude <= parent.maxFollowDistance)
+        counter++;
+        sum += agent.velocity.magnitude;
+
+        if (counter == 10)
+        {
+            if (!isAttacking && sum / 10 > 0.01f)
+                animationState.ChangeState(name + "_Walk");
+            else if (!isAttacking)
+                animationState.ChangeState(name + "_Idle");
+
+            sum = 0;
+            counter = 0;
+        }
+
+        if ((player.position - transform.position).magnitude <= enemyData.DetectionDistance && (player.position - parent.transform.position).magnitude <= parent.maxFollowDistance)
         {
             seesPlayer = true;
             agent.speed = enemyData.FollowSpeed;
             agent.SetDestination(player.position);
-            animationState.ChangeState(name + "_Walk");
+
+            if (!isAttacking && (player.position - transform.position).magnitude <= 1.4f)
+            {
+                isAttacking = true;
+                animationState.ChangeState(name + "_Attack");
+                Invoke("StopAttack", 0.4f);
+            }
 
             if (player.position.x - transform.position.x < 0) spriteRenderer.flipX = true;
             else if (player.position.x - transform.position.x > 0) spriteRenderer.flipX = false;
@@ -56,12 +76,18 @@ public class BasicEnemy : MonoBehaviour
             agent.speed = enemyData.MovementSpeed;
         }
 
-        if (canMove && !seesPlayer && !agent.hasPath)
+        if (!isAttacking && canMove && !seesPlayer && !agent.hasPath)
         {
-            animationState.ChangeState(name + "_Idle");
+            //animationState.ChangeState(name + "_Idle");
             canMove = false;
             StartCoroutine("Move");
         }
+    }
+
+    private void StopAttack()
+    {
+        isAttacking = false;
+        animationState.ChangeState(name + "_Idle");
     }
 
     private IEnumerator Move()
@@ -70,14 +96,13 @@ public class BasicEnemy : MonoBehaviour
         Vector3 randPos = agentPos + Random.insideUnitCircle * enemyData.MoveDistance;
 
         NavMeshPath path = new NavMeshPath();
-        if (agent.CalculatePath(randPos, path) && path.status == NavMeshPathStatus.PathComplete && (randPos - spawnPos).magnitude <= parent.maxWalkDistance)
+        if (agent.CalculatePath(randPos, path) && path.status == NavMeshPathStatus.PathComplete && (randPos - parent.transform.position).magnitude <= parent.maxWalkDistance)
         {
             if (randPos.x - agentPos.x < 0) spriteRenderer.flipX = true;
             else if (randPos.x - agentPos.x > 0) spriteRenderer.flipX = false;
 
             yield return new WaitForSeconds(Random.Range(enemyData.WaitTime.x, enemyData.WaitTime.y));
             agent.SetDestination(randPos);
-            animationState.ChangeState(name + "_Walk");
         }
 
         canMove = true;

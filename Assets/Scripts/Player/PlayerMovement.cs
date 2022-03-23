@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 2f;
 
-    private bool isAttacking = false;
+    private bool isAttacking;
     private Vector3 input = Vector3.zero;
 
     private Rigidbody2D rb;

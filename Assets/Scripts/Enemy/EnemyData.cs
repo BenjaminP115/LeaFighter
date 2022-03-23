@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "LEA/EnemyData", fileName = "new EnemyData")]
 public class EnemyData : ScriptableObject
 {
-    public string Name;
     public float Health;
     public Texture2D Sprite;
 
