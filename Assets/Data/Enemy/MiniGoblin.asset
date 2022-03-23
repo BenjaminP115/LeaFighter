@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41f17de7f8adea42a6b4ec516699b83, type: 3}
   m_Name: MiniGoblin
   m_EditorClassIdentifier: 
-  Name: 
   Health: 20
   Sprite: {fileID: 2800000, guid: 6d5f9853aa154ef4fb56ae069ec75942, type: 3}
   WaitTime: {x: 1, y: 10}
   MoveDistance: 5
   DetectionDistance: 5
   MovementSpeed: 1
-  FollowSpeed: 2
+  FollowSpeed: 1
