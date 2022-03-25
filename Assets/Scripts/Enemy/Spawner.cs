@@ -22,21 +22,32 @@ public class Spawner : MonoBehaviour
             spawnAmountMax += amount;
         }
 
+        int test = 0;
         int index = 0;
         while (spawnAmountMax != 0)
         {
             Vector2 agentPos = new Vector2(transform.position.x, transform.position.y);
             Vector3 randPos = agentPos + Random.insideUnitCircle * maxSpawnDistance;
 
-            if (NavMesh.SamplePosition(randPos, out NavMeshHit hit, maxSpawnDistance, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randPos, out NavMeshHit hit, maxSpawnDistance, -NavMesh.GetAreaFromName(LayerMask.LayerToName(gameObject.layer))))
             {
-                Instantiate(enemyType[index], hit.position, Quaternion.Euler(0, 0, 0), transform);
+                GameObject spawn = Instantiate(enemyType[index], hit.position, Quaternion.Euler(0, 0, 0), transform);
+                spawn.layer = gameObject.layer;
+                spawn.GetComponent<NavMeshAgent>().areaMask = 1 << NavMesh.GetAreaFromName(LayerMask.LayerToName(gameObject.layer));
+                spawn.GetComponent<NavMeshAgent>().enabled = false;
+                spawn.GetComponent<NavMeshAgent>().enabled = true;
+
                 spawnAmountMax--;
                 spawnAmount[index]--;
 
                 if (spawnAmount[index] == 0)
                     index++;
             }
+
+            test++;
+
+            if (test >= 100)
+                break;
         }
     }
 
