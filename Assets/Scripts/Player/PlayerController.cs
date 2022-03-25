@@ -1,52 +1,81 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Damage;
-    public float Health;
-    public float Defense;
-    public float Speed;
-    public float EnemyDamage;
+    private static float damage;
+    private static float health = 20;
+    private static float defense;
 
-    private Rigidbody2D rb;
+    public static bool isDead;
+
+    private static bool blockAnimations;
+    private static PlayerController instance;
+    private static AnimationState animationState;
+
     private Animator animator;
-    private AnimationState animationState;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = rb.GetComponent<Animator>();
+        instance = this;
+        animator = GetComponent<Animator>();
         animationState = new AnimationState(animator);
     }
 
-    private float DamageGet(float enemydamage, float defense)
-    {
-        float damagegot;
-        EnemyDamage = enemydamage;
-        Defense = defense;
-
-        damagegot = enemydamage / defense;
-
-        return damagegot;
-    }
-    private void Death(float Health)
-    {
-        if (Health == 0)
-        {
-            animationState.ChangeState(PlayerAnimationState.Dead);
-        }
-    }
-
-
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+
+    }
+
+    public static void Damage(float damageAmount)
+    {
+        health -= damageAmount;
+
+        if (health <= 0)
         {
-            Health -= DamageGet(EnemyDamage, Defense);
+            health = 0;
+            ChangeAnimationState(PlayerAnimationState.Death, 0.4f);
+            isDead = true;
         }
     }
+
+    public static void ChangeAnimationState(PlayerAnimationState playerAnimationState, float time = 0)
+    {
+        if (isDead) return;
+
+        if (!blockAnimations)
+            animationState.ChangeState(playerAnimationState);
+
+        switch (playerAnimationState)
+        {
+            case PlayerAnimationState.Attacking:
+            case PlayerAnimationState.Hit:
+                blockAnimations = true;
+                instance.Invoke("UnblockAnimations", time);
+                break;
+        }
+    }
+
+    private void UnblockAnimations()
+    {
+        Debug.Log("test");
+        blockAnimations = false;
+    }
+}
+
+public enum PlayerAnimationState
+{
+    [Description("Player_Idle")]
+    Idle,
+    [Description("Player_Walk")]
+    Walking,
+    [Description("Player_Attack")]
+    Attacking,
+    [Description("Player_Death")]
+    Death,
+    [Description("Player_Hit")]
+    Hit
 }

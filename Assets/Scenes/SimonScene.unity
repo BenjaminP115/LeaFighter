@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &219877893 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+    type: 3}
+  m_PrefabInstance: {fileID: 605391542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &263251871
 GameObject:
   m_ObjectHideFlags: 0
@@ -8634,6 +8640,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6062526310695783046}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &605391542
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1028691170}
+    m_Modifications:
+    - target: {fileID: -5117406170261851622, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.967
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.137
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653413, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_Name
+      value: MiniGoblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a79daf807433cfc40bb14acdc0d70502, type: 3}
 --- !u!1 &684786700
 GameObject:
   m_ObjectHideFlags: 0
@@ -8825,7 +8910,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9024,7 +9109,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 219877893}
   m_Father: {fileID: 1266601435}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9040,10 +9126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c3b61424cb04096f4825efdafb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType:
-  - {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502, type: 3}
-  enemySpawnAmount:
-  - {x: 3, y: 5}
+  enemyType: []
+  enemySpawnAmount: []
   maxSpawnDistance: 3
   maxWalkDistance: 5
   maxFollowDistance: 7

@@ -59,7 +59,7 @@ public class BasicEnemy : MonoBehaviour
             counter = 0;
         }
 
-        if ((player.position - transform.position).magnitude <= enemyData.DetectionDistance && (player.position - parent.transform.position).magnitude <= parent.maxFollowDistance)
+        if ((player.position - transform.position).magnitude <= enemyData.DetectionDistance && (player.position - parent.transform.position).magnitude <= parent.maxFollowDistance && !PlayerController.isDead)
         {
             seesPlayer = true;
             agent.speed = enemyData.FollowSpeed;
@@ -97,6 +97,16 @@ public class BasicEnemy : MonoBehaviour
 
     private void Attack()
     {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + facingDirection * 0.25f, new Vector3(0.75f, 1.25f, 0f), 0f);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag == "Player")
+            {
+                PlayerController.Damage(5);
+                PlayerController.ChangeAnimationState(PlayerAnimationState.Hit, 0.4f);
+            }
+        }
 
         Invoke("StopAttack", 0.4f);
     }
