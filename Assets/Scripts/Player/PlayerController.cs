@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private static float damage;
-    private static float health = 20;
+    private static float health = 2000;
     private static float defense;
 
     public static bool isDead;

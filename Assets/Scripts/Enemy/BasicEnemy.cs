@@ -27,7 +27,6 @@ public class BasicEnemy : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         agent = GetComponent<NavMeshAgent>();
-        agent.Warp(transform.position);
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = enemyData.MovementSpeed;
@@ -66,7 +65,7 @@ public class BasicEnemy : MonoBehaviour
             agent.speed = enemyData.FollowSpeed;
             agent.SetDestination(player.position);
 
-            if (!isAttacking && (player.position - transform.position).magnitude <= 1.4f)
+            if (!isAttacking && (player.position - transform.position).magnitude <= 1f)
             {
                 isAttacking = true;
                 animationState.ChangeState(name + "_Attack");
