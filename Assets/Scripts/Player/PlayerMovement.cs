@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 2f;
+    [SerializeField] private Tilemap[] tilemaps;
 
     private bool isAttacking;
     private Vector3 input = Vector3.zero;
@@ -12,6 +14,13 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        tilemaps = FindObjectsOfType<Tilemap>();
+
+        foreach (Tilemap tilemap in tilemaps)
+        {
+            Debug.Log(tilemap.gameObject.layer);
+            Debug.Log(LayerMask.LayerToName(tilemap.gameObject.layer));
+        }
     }
 
     private void Update()
@@ -38,6 +47,20 @@ public class PlayerMovement : MonoBehaviour
             PlayerController.ChangeAnimationState(PlayerAnimationState.Walking);
         else if (!isAttacking)
             PlayerController.ChangeAnimationState(PlayerAnimationState.Idle);
+
+        foreach (Tilemap tilemap in tilemaps)
+        {
+            if (tilemap.gameObject.layer > gameObject.layer && tilemap.GetTile(tilemap.WorldToCell(transform.position)))
+            {
+                Color color = new Color(tilemap.color.r, tilemap.color.b, tilemap.color.g, 0.75f);
+                tilemap.color = color;
+            }
+            else
+            {
+                Color color = new Color(tilemap.color.r, tilemap.color.b, tilemap.color.g, 1f);
+                tilemap.color = color;
+            }
+        }
     }
 
     private void FixedUpdate()

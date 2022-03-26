@@ -29,13 +29,23 @@ public class Spawner : MonoBehaviour
             Vector2 agentPos = new Vector2(transform.position.x, transform.position.y);
             Vector3 randPos = agentPos + Random.insideUnitCircle * maxSpawnDistance;
 
-            if (NavMesh.SamplePosition(randPos, out NavMeshHit hit, maxSpawnDistance, -NavMesh.GetAreaFromName(LayerMask.LayerToName(gameObject.layer))))
+            NavMeshPath path = new NavMeshPath();
+            if (NavMesh.CalculatePath(transform.position, randPos, -NavMesh.GetAreaFromName(LayerMask.LayerToName(gameObject.layer)), path) && path.status == NavMeshPathStatus.PathComplete)
             {
-                GameObject spawn = Instantiate(enemyType[index], hit.position, Quaternion.Euler(0, 0, 0), transform);
+                GameObject spawn = Instantiate(enemyType[index], randPos, Quaternion.Euler(0, 0, 0), transform);
                 spawn.layer = gameObject.layer;
-                spawn.GetComponent<NavMeshAgent>().areaMask = 1 << NavMesh.GetAreaFromName(LayerMask.LayerToName(gameObject.layer));
-                spawn.GetComponent<NavMeshAgent>().enabled = false;
-                spawn.GetComponent<NavMeshAgent>().enabled = true;
+                //spawn.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(LayerMask.LayerToName(gameObject.layer));
+                SpriteRenderer[] spriteRenderers = spawn.GetComponentsInChildren<SpriteRenderer>();
+
+                foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+                {
+                    spriteRenderer.sortingLayerID = SortingLayer.NameToID(LayerMask.LayerToName(gameObject.layer));
+                }
+
+                NavMeshAgent spawnAgent = spawn.GetComponent<NavMeshAgent>();
+                spawnAgent.areaMask = 1 << NavMesh.GetAreaFromName(LayerMask.LayerToName(gameObject.layer));
+                spawnAgent.enabled = false;
+                spawnAgent.enabled = true;
 
                 spawnAmountMax--;
                 spawnAmount[index]--;

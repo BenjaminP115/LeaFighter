@@ -117,11 +117,8 @@ public class BasicEnemy : MonoBehaviour
         Vector3 randPos = agentPos + Random.insideUnitCircle * enemyData.MoveDistance;
 
         NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(randPos, path);
-        Debug.Log(path.status);
         if (agent.CalculatePath(randPos, path) && path.status == NavMeshPathStatus.PathComplete && (randPos - parent.transform.position).magnitude <= parent.maxWalkDistance)
         {
-            Debug.Log("In");
             if (randPos.x - agentPos.x < 0) spriteRenderer.flipX = true;
             else if (randPos.x - agentPos.x > 0) spriteRenderer.flipX = false;
 
