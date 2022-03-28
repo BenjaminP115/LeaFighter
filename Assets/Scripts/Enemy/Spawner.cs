@@ -7,6 +7,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Vector2Int[] enemySpawnAmount;
     [SerializeField] private float maxSpawnDistance = 3f;
 
+    public static int enemyAmount;
+
     public float maxWalkDistance = 5f;
     public float maxFollowDistance = 7f;
 
@@ -32,6 +34,8 @@ public class Spawner : MonoBehaviour
             NavMeshPath path = new NavMeshPath();
             if (NavMesh.CalculatePath(transform.position, randPos, -NavMesh.GetAreaFromName(LayerMask.LayerToName(gameObject.layer)), path) && path.status == NavMeshPathStatus.PathComplete)
             {
+                enemyAmount++;
+
                 GameObject spawn = Instantiate(enemyType[index], randPos, Quaternion.Euler(0, 0, 0), transform);
                 spawn.layer = gameObject.layer;
                 //spawn.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(LayerMask.LayerToName(gameObject.layer));

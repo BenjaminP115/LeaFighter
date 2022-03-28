@@ -4,7 +4,10 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public float Health;
-    public Texture2D Sprite;
+    public float Damage;
+    public float AttackDistance;
+
+    public int Xp;
 
     [Header("Movement")]
     public Vector2 WaitTime;
