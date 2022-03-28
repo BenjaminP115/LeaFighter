@@ -1,51 +1,40 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 2f;
-    [SerializeField] private Tilemap[] tilemaps;
 
-    private bool isAttacking;
+    private Tilemap[] tilemaps;
     private Vector3 input = Vector3.zero;
 
-    private SpriteRenderer spriteRenderer;
+    public static SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         tilemaps = FindObjectsOfType<Tilemap>();
-
-        foreach (Tilemap tilemap in tilemaps)
-        {
-            Debug.Log(tilemap.gameObject.layer);
-            Debug.Log(LayerMask.LayerToName(tilemap.gameObject.layer));
-        }
     }
 
     private void Update()
     {
+        if (PlayerController.isDead) return;
+
         input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f).normalized;
 
-        if (Input.GetKeyDown(KeyCode.A) && !PlayerController.isDead)
+        if (Input.GetKeyDown(KeyCode.A))
         {
             spriteRenderer.flipX = true;
         }
-        else if (Input.GetKeyDown(KeyCode.D) && !PlayerController.isDead)
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             spriteRenderer.flipX = false;
         }
 
-        if (!isAttacking && !PlayerController.isDead && Input.GetButtonDown("Fire1"))
-        {
-            isAttacking = true;
-            PlayerController.ChangeAnimationState(PlayerAnimationState.Attacking, 0.4f);
-            Invoke("StopAttack", 0.4f);
-        }
-
-        if (input.magnitude > 0.1f && !isAttacking)
+        if (input.magnitude > 0.1f && !PlayerController.isAttacking)
             PlayerController.ChangeAnimationState(PlayerAnimationState.Walking);
-        else if (!isAttacking)
+        else if (!PlayerController.isAttacking)
             PlayerController.ChangeAnimationState(PlayerAnimationState.Idle);
 
         foreach (Tilemap tilemap in tilemaps)
@@ -65,13 +54,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isAttacking && !PlayerController.isDead)
+        if (!PlayerController.isAttacking && !PlayerController.isDead)
             transform.Translate(input * movementSpeed * Time.deltaTime);
     }
 
-    private void StopAttack()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        isAttacking = false;
-        PlayerController.ChangeAnimationState(PlayerAnimationState.Idle);
+        if (collider.gameObject.tag == "Finish")
+        {
+            SceneManager.LoadScene("LevelEnd");
+        }
     }
 }

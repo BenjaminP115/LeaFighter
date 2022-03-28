@@ -1,17 +1,16 @@
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private static float damage;
-    private static float health = 2000;
-    private static float defense;
+    [SerializeField] private float damage;
+    [SerializeField] private float health = 2000;
+    [SerializeField] private float defense;
 
     public static bool isDead;
+    public static bool isAttacking;
 
+    private Vector3 facingDirection;
     private static bool blockAnimations;
     private static PlayerController instance;
     private static AnimationState animationState;
@@ -27,12 +26,43 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        facingDirection = Vector3.right;
+        if (PlayerMovement.spriteRenderer.flipX)
+            facingDirection = Vector3.left;
+
+        if (!isAttacking && !isDead && Input.GetButtonDown("Fire1"))
+            Attack();
+    }
+
+    private void Attack()
+    {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + facingDirection * 0.25f, new Vector3(0.75f, 1.25f, 0f), 0f);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag == "Enemy")
+            {
+                collider.gameObject.GetComponent<BasicEnemy>().Damage(damage);
+            }
+        }
+
+        isAttacking = true;
+        ChangeAnimationState(PlayerAnimationState.Attacking, 0.4f);
+        Invoke("StopAttack", 0.4f);
 
     }
 
-    public static void Damage(float damageAmount)
+    private void StopAttack()
+    {
+        isAttacking = false;
+        ChangeAnimationState(PlayerAnimationState.Idle);
+    }
+
+    public void Damage(float damageAmount)
     {
         health -= damageAmount;
+
+        ChangeAnimationState(PlayerAnimationState.Hit, 0.4f);
 
         if (health <= 0)
         {
@@ -52,7 +82,6 @@ public class PlayerController : MonoBehaviour
         switch (playerAnimationState)
         {
             case PlayerAnimationState.Attacking:
-            case PlayerAnimationState.Hit:
                 blockAnimations = true;
                 instance.Invoke("UnblockAnimations", time);
                 break;
@@ -61,8 +90,13 @@ public class PlayerController : MonoBehaviour
 
     private void UnblockAnimations()
     {
-        Debug.Log("test");
         blockAnimations = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(transform.position + facingDirection * 0.25f, new Vector3(0.75f, 1.25f, 0f));
     }
 }
 
