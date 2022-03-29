@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
         switch (playerAnimationState)
         {
+            case PlayerAnimationState.Hit:
             case PlayerAnimationState.Attacking:
                 blockAnimations = true;
                 instance.Invoke("UnblockAnimations", time);
