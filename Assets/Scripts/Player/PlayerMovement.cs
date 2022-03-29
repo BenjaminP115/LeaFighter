@@ -8,12 +8,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Tilemap[] tilemaps;
     private Vector3 input = Vector3.zero;
+    private PlayerController playerController;
 
     public static SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerController = GetComponent<PlayerController>();
         tilemaps = FindObjectsOfType<Tilemap>();
     }
 
@@ -32,9 +34,9 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        if (input.magnitude > 0.1f && !PlayerController.isAttacking)
+        if (input.magnitude > 0.1f && !playerController.isAttacking)
             PlayerController.ChangeAnimationState(PlayerAnimationState.Walking);
-        else if (!PlayerController.isAttacking)
+        else if (!playerController.isAttacking)
             PlayerController.ChangeAnimationState(PlayerAnimationState.Idle);
 
         foreach (Tilemap tilemap in tilemaps)
@@ -54,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!PlayerController.isAttacking && !PlayerController.isDead)
+        if (!playerController.isAttacking && !PlayerController.isDead)
             transform.Translate(input * movementSpeed * Time.deltaTime);
     }
 

@@ -22,7 +22,7 @@ public class AxeThrower : DefaultEnemy
         if (!animationBlock)
             time += Time.deltaTime;
 
-        if (time >= throwDelay && player.gameObject.layer == gameObject.layer && (player.position - transform.position).magnitude <= throwDistance)
+        if (!PlayerController.isDead && time >= throwDelay && player.gameObject.layer == gameObject.layer && (player.position - transform.position).magnitude <= throwDistance)
         {
             animationState.ChangeState(name + "_Special1");
             roamBlock = true;

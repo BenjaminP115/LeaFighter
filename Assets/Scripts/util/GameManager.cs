@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public int kills;
     public int xp;
+    public int level => xp / 100;
 
     public static GameManager Instance;
 

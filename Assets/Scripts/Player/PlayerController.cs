@@ -3,15 +3,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float damage;
-    [SerializeField] private float health = 2000;
-    [SerializeField] private float defense;
+    [SerializeField] private float health;
+
+    private float damage => 10 + damageLevel * 5;
+    private float defense => 1 + defenseLevel * 0.1f;
+
+    [SerializeField] private int damageLevel = 1;
+    [SerializeField] private int healthLevel = 1;
+    [SerializeField] private int defenseLevel = 1;
+
+    public float maxHealth => 100 + healthLevel * 10;
 
     public static bool isDead;
-    public static bool isAttacking;
+    public bool isAttacking;
 
+    private int currLevel;
     private Vector3 facingDirection;
-    private static bool blockAnimations;
+    private bool blockAnimations;
     private static PlayerController instance;
     private static AnimationState animationState;
 
@@ -32,6 +40,17 @@ public class PlayerController : MonoBehaviour
 
         if (!isAttacking && !isDead && Input.GetButtonDown("Fire1"))
             Attack();
+
+        if (GameManager.Instance.level > currLevel)
+        {
+            currLevel = GameManager.Instance.level;
+
+            damageLevel++;
+            healthLevel++;
+            defenseLevel++;
+
+            health = maxHealth;
+        }
     }
 
     private void Attack()
@@ -60,9 +79,7 @@ public class PlayerController : MonoBehaviour
 
     public void Damage(float damageAmount)
     {
-        health -= damageAmount;
-
-        ChangeAnimationState(PlayerAnimationState.Hit, 0.4f);
+        health -= damageAmount / defense;
 
         if (health <= 0)
         {
@@ -70,19 +87,23 @@ public class PlayerController : MonoBehaviour
             ChangeAnimationState(PlayerAnimationState.Death, 0.4f);
             isDead = true;
         }
+        else
+            ChangeAnimationState(PlayerAnimationState.Hit, 0.4f);
     }
 
     public static void ChangeAnimationState(PlayerAnimationState playerAnimationState, float time = 0)
     {
         if (isDead) return;
 
-        if (!blockAnimations)
+        if (!instance.blockAnimations)
             animationState.ChangeState(playerAnimationState);
+
 
         switch (playerAnimationState)
         {
+            case PlayerAnimationState.Hit:
             case PlayerAnimationState.Attacking:
-                blockAnimations = true;
+                instance.blockAnimations = true;
                 instance.Invoke("UnblockAnimations", time);
                 break;
         }

@@ -40,6 +40,7 @@ public class AnimationState
     {
         if (String.IsNullOrEmpty(state)) return;
         if (currentState == state) return;
+        if (PlayerController.isDead && state == "Player_Death") return;
 
         currentState = state;
 
