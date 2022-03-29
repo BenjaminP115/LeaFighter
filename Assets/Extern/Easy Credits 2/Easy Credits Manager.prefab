@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1555452979502190898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1555452979502190900}
+  - component: {fileID: 1555452979502190901}
+  - component: {fileID: 1555452979502190899}
+  m_Layer: 0
+  m_Name: Easy Credits Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1555452979502190900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555452979502190898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1555452979502190901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555452979502190898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459ff81bd639dda44b75263d6a930bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 1
+  backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  scrollSpeed: 3
+  scroll: 1
+  offset: 0
+  LastElement: {fileID: 0}
+--- !u!114 &1555452979502190899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555452979502190898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0e0b00c408a4249a4492e7078a3f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: Credits
+  startDelay: 1
+  backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  scrollSpeed: 1
+  TextCentering: -0.4
+  TitleLogoCentering: 0.4
+  KeepTitleCentered: 1
+  GameTitleImage: {fileID: 21300000, guid: f17954062dba9ef4f813b8fdb490ca2f, type: 3}
+  gameTitleScale: 15
+  GameTitle: 
+  gameTitleFont: {fileID: 0}
+  GameTitleWordSpacing: 0
+  GameTitleCharacterSpacing: 0
+  GameTitleLineSpacing: 70
+  GameTitlefontSize: 22
+  GameTitleColor: {r: 0.83091974, g: 0, b: 1, a: 1}
+  SectionLineSpacing: 20
+  roleFont: {fileID: 0}
+  RoleWordSpacing: 0
+  RoleCharacterSpacing: 0
+  RoleLineSpacing: 10
+  RolefontSize: 22
+  roleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  titleFont: {fileID: 0}
+  TitleWordSpacing: 0
+  TitleCharacterSpacing: 0
+  LegalFont: {fileID: 0}
+  LegalWordSpacing: 0
+  LegalCharacterSpacing: 0
+  LegalColor: {r: 1, g: 1, b: 1, a: 1}
+  LegalFontSize: 12
+  TitleLineSpacing: 5
+  LegalLineSpacing: 0
+  TitlefontSize: 18
+  titleColor: {r: 1, g: 1, b: 1, a: 1}
+  startPointOffset: 0
+  ExitToSceneOnEnd: 1
+  exitTime: 0
+  SceneToExitTo: 0
+  KeepLegalLineCentred: 1
+  LegalLine: Credits powered by Easy Credits
+  OnCreditsStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCreditsEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  inlayType: 4
+  Inlays:
+  - EasyCreditsInlays: {fileID: 11400000, guid: 23d3d3fedb87bd643a16f9c9953b193c,
+      type: 2}
+    Centering: 0.43
+    Spacing: 35
+    Scale: 4
+  - EasyCreditsInlays: {fileID: 11400000, guid: ccea7fd4a3a59c04d886c78154d1e7b6,
+      type: 2}
+    Centering: 0.43
+    Spacing: 35
+    Scale: 4
+  - EasyCreditsInlays: {fileID: 11400000, guid: bef2e93d43ce20447879fa06d7862252,
+      type: 2}
+    Centering: 0.43
+    Spacing: 35
+    Scale: 4
+  - EasyCreditsInlays: {fileID: 11400000, guid: cab8a93199700b64ea94c3e037131174,
+      type: 2}
+    Centering: 0.43
+    Spacing: 35
+    Scale: 4
+  StationaryInlays:
+  - EasyCreditsInlays: {fileID: 11400000, guid: 23d3d3fedb87bd643a16f9c9953b193c,
+      type: 2}
+    StartTime: 7
+    EndTime: 11
+    Scale: 20
+  - EasyCreditsInlays: {fileID: 11400000, guid: cab8a93199700b64ea94c3e037131174,
+      type: 2}
+    StartTime: 12
+    EndTime: 16
+    Scale: 20
+  cinematicRoleCentering: -25
+  creditType: 1
+  InlayPostionLeftRight: 40
+  InlayPostionUpDown: 0
+  gameTitleAnchor: 4
+  roleAnchor: 5
+  titleAnchor: 3
+  legalAnchor: 4
+  scroll: 1

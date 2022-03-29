@@ -64,52 +64,52 @@ TextureImporter:
     second: Attack6
   - first:
       213: -3178252236745085681
-    second: Special1_1
+    second: AxeThrow1
   - first:
       213: -2572586468792748377
-    second: Special1_2
+    second: AxeThrow2
   - first:
       213: 2332891069799611188
-    second: Special1_3
+    second: AxeThrow3
   - first:
       213: -7727649956582339522
-    second: Special1_4
+    second: AxeThrow4
   - first:
       213: -4810103026320961673
-    second: Special1_5
+    second: AxeThrow5
   - first:
       213: -6940188817963139933
-    second: Special1_6
+    second: AxeThrow6
   - first:
       213: 5588341589624540862
-    second: Special_1
+    second: DoubleAttack1
   - first:
       213: -7652432200193475814
-    second: Special2_2
+    second: DoubleAttack2
   - first:
       213: -3096803591633169665
-    second: Special2_3
+    second: DoubleAttack3
   - first:
       213: 4255867708245080013
-    second: Special2_4
+    second: DoubleAttack4
   - first:
       213: -6417350819446550331
-    second: Special2_5
+    second: DoubleAttack5
   - first:
       213: -4038541022902719310
-    second: Special2_6
+    second: DoubleAttack6
   - first:
       213: -1361296960640128799
-    second: Special3_1
+    second: Scream1
   - first:
       213: 7375682142891000076
-    second: Special3_2
+    second: Scream2
   - first:
       213: -2038867966629851260
-    second: Special3_3
+    second: Scream3
   - first:
       213: 6859171574859661471
-    second: Special3_4
+    second: Scream4
   - first:
       213: 2198735667048856270
     second: Hit1
@@ -637,7 +637,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special1_1
+      name: AxeThrow1
       rect:
         serializedVersion: 2
         x: 0
@@ -658,7 +658,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special1_2
+      name: AxeThrow2
       rect:
         serializedVersion: 2
         x: 32
@@ -679,7 +679,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special1_3
+      name: AxeThrow3
       rect:
         serializedVersion: 2
         x: 64
@@ -700,7 +700,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special1_4
+      name: AxeThrow4
       rect:
         serializedVersion: 2
         x: 96
@@ -721,7 +721,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special1_5
+      name: AxeThrow5
       rect:
         serializedVersion: 2
         x: 128
@@ -742,7 +742,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special1_6
+      name: AxeThrow6
       rect:
         serializedVersion: 2
         x: 160
@@ -763,7 +763,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special_1
+      name: DoubleAttack1
       rect:
         serializedVersion: 2
         x: 0
@@ -784,7 +784,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special2_2
+      name: DoubleAttack2
       rect:
         serializedVersion: 2
         x: 32
@@ -805,7 +805,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special2_3
+      name: DoubleAttack3
       rect:
         serializedVersion: 2
         x: 64
@@ -826,7 +826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special2_4
+      name: DoubleAttack4
       rect:
         serializedVersion: 2
         x: 96
@@ -847,7 +847,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special2_5
+      name: DoubleAttack5
       rect:
         serializedVersion: 2
         x: 128
@@ -868,7 +868,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special2_6
+      name: DoubleAttack6
       rect:
         serializedVersion: 2
         x: 160
@@ -889,7 +889,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special3_1
+      name: Scream1
       rect:
         serializedVersion: 2
         x: 0
@@ -910,7 +910,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special3_2
+      name: Scream2
       rect:
         serializedVersion: 2
         x: 32
@@ -931,7 +931,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special3_3
+      name: Scream3
       rect:
         serializedVersion: 2
         x: 64
@@ -952,7 +952,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special3_4
+      name: Scream4
       rect:
         serializedVersion: 2
         x: 96

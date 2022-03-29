@@ -55,16 +55,16 @@ TextureImporter:
     second: Attack4
   - first:
       213: -5724051977672836950
-    second: Special1_1
+    second: SpecialAttack1
   - first:
       213: 7693182422884096566
-    second: Special2_1
+    second: SpecialAttack2
   - first:
       213: -2727002996805041948
-    second: Special3_1
+    second: SpecialAttack3
   - first:
       213: -8863057452303907535
-    second: Special4_1
+    second: SpecialAttack4
   - first:
       213: -6538262342452696322
     second: Hit1
@@ -529,7 +529,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special1_1
+      name: SpecialAttack1
       rect:
         serializedVersion: 2
         x: 0
@@ -550,7 +550,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special2_1
+      name: SpecialAttack2
       rect:
         serializedVersion: 2
         x: 32
@@ -571,7 +571,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special3_1
+      name: SpecialAttack3
       rect:
         serializedVersion: 2
         x: 64
@@ -592,7 +592,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special4_1
+      name: SpecialAttack4
       rect:
         serializedVersion: 2
         x: 96

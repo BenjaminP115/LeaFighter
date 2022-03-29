@@ -61,22 +61,22 @@ TextureImporter:
     second: Attack6
   - first:
       213: -6516518714537357915
-    second: Special1_1
+    second: AxeThrow1
   - first:
       213: -2224815783462360590
-    second: Special2_1
+    second: AxeThrow2
   - first:
       213: -517139108432917857
-    second: Special3_1
+    second: AxeThrow3
   - first:
       213: -7381936281132628535
-    second: Special4_1
+    second: AxeThrow4
   - first:
       213: -787298044621124756
-    second: Special5_1
+    second: AxeThrow5
   - first:
       213: -3788954177948986131
-    second: Special6_1
+    second: AxeThrow6
   - first:
       213: -8012483174459336779
     second: Hit1
@@ -583,7 +583,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special1_1
+      name: AxeThrow1
       rect:
         serializedVersion: 2
         x: 0
@@ -604,7 +604,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special2_1
+      name: AxeThrow2
       rect:
         serializedVersion: 2
         x: 32
@@ -625,7 +625,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special3_1
+      name: AxeThrow3
       rect:
         serializedVersion: 2
         x: 64
@@ -646,7 +646,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special4_1
+      name: AxeThrow4
       rect:
         serializedVersion: 2
         x: 96
@@ -667,7 +667,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special5_1
+      name: AxeThrow5
       rect:
         serializedVersion: 2
         x: 128
@@ -688,7 +688,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Special6_1
+      name: AxeThrow6
       rect:
         serializedVersion: 2
         x: 160
