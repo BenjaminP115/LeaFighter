@@ -8,9 +8,11 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] protected EnemyData enemyData;
 
     protected bool isDead;
-    protected bool canMove = true;
+    protected bool canRoam = true;
+    protected bool roamBlock;
+
     protected bool animationBlock;
-    public Vector3 facingDirection;
+    protected Vector3 facingDirection;
 
     protected float health;
 
@@ -66,9 +68,9 @@ public class BasicEnemy : MonoBehaviour
             counter = 0;
         }
 
-        if (canMove && !agent.hasPath)
+        if (!roamBlock && canRoam && !agent.hasPath)
         {
-            canMove = false;
+            canRoam = false;
             StartCoroutine("Move");
         }
     }
@@ -111,7 +113,7 @@ public class BasicEnemy : MonoBehaviour
                 agent.SetDestination(randPos);
         }
 
-        canMove = true;
+        canRoam = true;
     }
 
     protected void OnDrawGizmosSelected()

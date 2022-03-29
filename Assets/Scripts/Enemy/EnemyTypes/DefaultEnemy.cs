@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DefaultEnemy : BasicEnemy
 {
+    protected bool canFollow = true;
 
     protected void Start()
     {
@@ -14,9 +13,11 @@ public class DefaultEnemy : BasicEnemy
     {
         if (isDead) return;
 
-        if ((player.position - transform.position).magnitude <= enemyData.DetectionDistance && (player.position - parent.transform.position).magnitude <= parent.maxFollowDistance && !PlayerController.isDead)
+        base.Update();
+
+        if (canFollow && (player.position - transform.position).magnitude <= enemyData.DetectionDistance && (player.position - parent.transform.position).magnitude <= parent.maxFollowDistance && !PlayerController.isDead)
         {
-            canMove = false;
+            roamBlock = true;
             agent.speed = enemyData.FollowSpeed;
             agent.SetDestination(player.position);
 
@@ -32,11 +33,9 @@ public class DefaultEnemy : BasicEnemy
         }
         else
         {
-            canMove = true;
+            roamBlock = false;
             agent.speed = enemyData.MovementSpeed;
         }
-
-        base.Update();
     }
 
     protected void StopAttack()
