@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
             source.clip = audioClip.clip;
             source.playOnAwake = false;
             source.volume = audioClip.volume;
+            source.spatialBlend = 1;
 
             sources[i] = source;
             i++;

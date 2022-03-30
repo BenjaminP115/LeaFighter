@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
             {
                 enemyAmount++;
 
-                GameObject spawn = Instantiate(enemies[index].enemyType, randPos, Quaternion.Euler(0, 0, 0), transform);
+                GameObject spawn = Instantiate(enemies[index].enemyType, randPos, Quaternion.identity, transform);
                 spawn.layer = gameObject.layer;
                 //spawn.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(LayerMask.LayerToName(gameObject.layer));
                 SpriteRenderer[] spriteRenderers = spawn.GetComponentsInChildren<SpriteRenderer>();
