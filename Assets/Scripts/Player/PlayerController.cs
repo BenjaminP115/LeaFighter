@@ -3,31 +3,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float health;
+    [SerializeField] private GameObject lvlUp;
 
-    private float damage => 10 + damageLevel * 5;
-    private float defense => 1 + defenseLevel * 0.1f;
-
-    [SerializeField] private int damageLevel = 1;
-    [SerializeField] private int healthLevel = 1;
-    [SerializeField] private int defenseLevel = 1;
-
-    public float maxHealth => 100 + healthLevel * 10;
+    private GameManager gm;
 
     public static bool isDead;
-    public bool isAttacking;
+    [HideInInspector] public bool isAttacking;
 
     private int currLevel;
     private Vector3 facingDirection;
     private bool blockAnimations;
     private static PlayerController instance;
     private static AnimationState animationState;
-    public AudioManager audioManager;
+    [HideInInspector] public AudioManager audioManager;
 
     private Animator animator;
 
     private void Start()
     {
+        gm = GameManager.Instance;
         instance = this;
         animator = GetComponent<Animator>();
         audioManager = GetComponent<AudioManager>();
@@ -43,16 +37,26 @@ public class PlayerController : MonoBehaviour
         if (!isAttacking && !isDead && Input.GetButtonDown("Fire1"))
             Attack();
 
-        if (GameManager.Instance.level > currLevel)
+        if (gm.level > currLevel)
         {
-            currLevel = GameManager.Instance.level;
+            currLevel = gm.level;
 
-            damageLevel++;
-            healthLevel++;
-            defenseLevel++;
+            lvlUp.SetActive(true);
 
-            health = maxHealth;
+            Invoke("DeaktivateLvlUp", 1.24f);
+
+            gm.damageLevel++;
+            gm.healthLevel++;
+            gm.defenseLevel++;
+            gm.attrbPoints++;
+
+            gm.health = gm.maxHealth;
         }
+    }
+
+    private void DeaktivateLvlUp()
+    {
+        lvlUp.SetActive(false);
     }
 
     private void Attack()
@@ -65,7 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             if (collider.gameObject.tag == "Enemy")
             {
-                collider.gameObject.GetComponent<BasicEnemy>().Damage(damage);
+                collider.gameObject.GetComponent<BasicEnemy>().Damage(gm.damage);
             }
         }
 
@@ -83,11 +87,11 @@ public class PlayerController : MonoBehaviour
 
     public void Damage(float damageAmount)
     {
-        health -= damageAmount / defense;
+        gm.health -= damageAmount / gm.defense;
 
-        if (health <= 0)
+        if (gm.health <= 0)
         {
-            health = 0;
+            gm.health = 0;
             ChangeAnimationState(PlayerAnimationState.Death, 0.4f);
             isDead = true;
         }

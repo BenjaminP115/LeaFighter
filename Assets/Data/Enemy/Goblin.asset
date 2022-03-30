@@ -15,7 +15,7 @@ MonoBehaviour:
   Health: 20
   Damage: 3
   AttackDistance: 1
-  Xp: 3
+  Xp: 50
   WaitTime: {x: 1, y: 10}
   MoveDistance: 5
   DetectionDistance: 5

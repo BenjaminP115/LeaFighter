@@ -21,7 +21,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerController.isDead) return;
+        if (PlayerController.isDead)
+        {
+            PlayerController.ChangeAnimationState(PlayerAnimationState.Death);
+            return;
+        }
 
         input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f).normalized;
 
