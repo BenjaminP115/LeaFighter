@@ -24,7 +24,7 @@ public class AxeThrower : DefaultEnemy
 
         if (!PlayerController.isDead && time >= throwDelay && player.gameObject.layer == gameObject.layer && (player.position - transform.position).magnitude <= throwDistance)
         {
-            animationState.ChangeState(name + "_Special1");
+            animationState.ChangeState(name + "_AxeThrow");
             roamBlock = true;
             canFollow = false;
             agent.SetDestination(transform.position);
