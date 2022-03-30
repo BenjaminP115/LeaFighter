@@ -260,20 +260,20 @@ MonoBehaviour:
   GameTitleImage: {fileID: 0}
   gameTitleScale: 15
   GameTitle: Adventure of Sword
-  gameTitleFont: {fileID: 0}
+  gameTitleFont: {fileID: 11400000, guid: fd83f7febad037748aa1663bf9ac2e5d, type: 2}
   GameTitleWordSpacing: 0
   GameTitleCharacterSpacing: 0
   GameTitleLineSpacing: 70
   GameTitlefontSize: 50
   GameTitleColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
   SectionLineSpacing: 20
-  roleFont: {fileID: 0}
+  roleFont: {fileID: 11400000, guid: 246300403b79c5c4eb74ce207e783659, type: 2}
   RoleWordSpacing: 0
   RoleCharacterSpacing: 0
   RoleLineSpacing: 10
   RolefontSize: 22
   roleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  titleFont: {fileID: 0}
+  titleFont: {fileID: 11400000, guid: 246300403b79c5c4eb74ce207e783659, type: 2}
   TitleWordSpacing: 0
   TitleCharacterSpacing: 0
   LegalFont: {fileID: 0}
