@@ -3,8 +3,14 @@ using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemyType;
-    [SerializeField] private Vector2Int[] enemySpawnAmount;
+    [System.Serializable]
+    public struct Enemy
+    {
+        public GameObject enemyType;
+        public Vector2Int enemySpawnAmount;
+    }
+
+    [SerializeField] private Enemy[] enemies;
     [SerializeField] private float maxSpawnDistance = 3f;
 
     public static int enemyAmount;
@@ -14,12 +20,12 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        int[] spawnAmount = new int[enemySpawnAmount.Length];
+        int[] spawnAmount = new int[enemies.Length];
         int spawnAmountMax = 0;
 
         for (int i = 0; i < spawnAmount.Length; i++)
         {
-            int amount = Random.Range(enemySpawnAmount[i].x, enemySpawnAmount[i].y + 1);
+            int amount = Random.Range(enemies[i].enemySpawnAmount.x, enemies[i].enemySpawnAmount.y + 1);
             spawnAmount[i] = amount;
             spawnAmountMax += amount;
         }
@@ -36,7 +42,7 @@ public class Spawner : MonoBehaviour
             {
                 enemyAmount++;
 
-                GameObject spawn = Instantiate(enemyType[index], randPos, Quaternion.Euler(0, 0, 0), transform);
+                GameObject spawn = Instantiate(enemies[index].enemyType, randPos, Quaternion.Euler(0, 0, 0), transform);
                 spawn.layer = gameObject.layer;
                 //spawn.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(LayerMask.LayerToName(gameObject.layer));
                 SpriteRenderer[] spriteRenderers = spawn.GetComponentsInChildren<SpriteRenderer>();

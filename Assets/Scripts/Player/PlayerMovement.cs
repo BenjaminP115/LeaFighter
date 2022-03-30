@@ -54,10 +54,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private double time = 0;
     private void FixedUpdate()
     {
+        time += Time.deltaTime;
         if (!playerController.isAttacking && !PlayerController.isDead)
+        {
+            if (time >= 0.28f && input.magnitude >= 0.1f)
+            {
+                playerController.audioManager.Play(Random.Range(0, 2));
+                time = 0;
+            }
+
             transform.Translate(input * movementSpeed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5117406170261851622}
   - component: {fileID: 5220363525019099236}
   - component: {fileID: -9164972070910222564}
+  - component: {fileID: -177605038703856104}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
@@ -169,6 +170,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Goblin
   enemyData: {fileID: 11400000, guid: 942e85ed71a632d4baecd9a1488aca2e, type: 2}
+--- !u!114 &-177605038703856104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317849357613653415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb01ab8debc4cc48b50e7073e55e879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - clip: {fileID: 8300000, guid: a04f50e6146d6ea43a139f25c28b278a, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: 79a4dd77f0e01694783696c790cebbc5, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: 3b3c9036492188d44bfc5e8e7e7ccd77, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: b960fad4297047446a0b4be7c4b3c913, type: 3}
+    volume: 0.5
+  sources: []
 --- !u!1 &5244084537280572202
 GameObject:
   m_ObjectHideFlags: 0

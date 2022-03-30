@@ -24,12 +24,14 @@ public class BasicEnemy : MonoBehaviour
     protected AnimationState animationState;
     protected SpriteRenderer spriteRenderer;
     protected Spawner parent;
+    protected AudioManager audioManager;
 
     protected void Start()
     {
         parent = transform.parent.GetComponent<Spawner>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = GetComponent<AudioManager>();
 
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
@@ -45,6 +47,7 @@ public class BasicEnemy : MonoBehaviour
 
     protected int counter = 0;
     protected float sum = 0;
+    protected double time = 0;
 
     protected void Update()
     { 
@@ -56,11 +59,19 @@ public class BasicEnemy : MonoBehaviour
 
         counter++;
         sum += agent.velocity.magnitude;
+        time += Time.deltaTime;
 
         if (counter == 10)
         {
             if (!animationBlock && sum / 10 > 0.01f)
+            {
+                if (time >= 0.28f && sum / 10 >= 0.1f)
+                {
+                    audioManager.Play(Random.Range(0, 2));
+                    time = 0;
+                }
                 animationState.ChangeState(name + "_Walk");
+            }
             else if (!animationBlock)
                 animationState.ChangeState(name + "_Idle");
 

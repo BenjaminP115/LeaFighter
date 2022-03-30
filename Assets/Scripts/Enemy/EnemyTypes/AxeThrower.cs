@@ -40,6 +40,7 @@ public class AxeThrower : DefaultEnemy
 
     private void ThrowAxe()
     {
+        audioManager.Play(4);
         GameObject spawn = Instantiate(axe, transform.position, Quaternion.identity);
         spawn.GetComponent<Axe>().moveDir = (player.position - transform.position).normalized * 3;
     }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 492897993393913104}
   - component: {fileID: 8529262274029956974}
   - component: {fileID: 4480081274500476252}
+  - component: {fileID: 6983223460522500678}
   m_Layer: 20
   m_Name: OrcAxeThrower
   m_TagString: Enemy
@@ -172,6 +173,30 @@ MonoBehaviour:
   throwDistance: 5
   throwDelay: 1
   axe: {fileID: 4017010692269591607, guid: 72d9a8533886e9f4a99c43b6ffaa13ea, type: 3}
+--- !u!114 &6983223460522500678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414444637255406253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb01ab8debc4cc48b50e7073e55e879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - clip: {fileID: 8300000, guid: a04f50e6146d6ea43a139f25c28b278a, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: 79a4dd77f0e01694783696c790cebbc5, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: 3b3c9036492188d44bfc5e8e7e7ccd77, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: b960fad4297047446a0b4be7c4b3c913, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: 1f18a85256f0e87468ad04acbf231c71, type: 3}
+    volume: 0.5
+  sources: []
 --- !u!1 &8568882469223490592
 GameObject:
   m_ObjectHideFlags: 0

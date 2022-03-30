@@ -49,6 +49,8 @@ public class DefaultEnemy : BasicEnemy
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + facingDirection * 0.25f, new Vector3(0.75f, 1.25f, 0f), 0f);
 
+        audioManager.Play(Random.Range(2, 4));
+
         foreach (Collider2D collider in colliders)
         {
             if (collider.gameObject.tag == "Player")

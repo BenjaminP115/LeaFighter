@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6643921801971781635}
   - component: {fileID: 1481399707907272571}
   - component: {fileID: 1459596575552254052}
+  - component: {fileID: -315665450718876307}
   m_Layer: 20
   m_Name: WargRider
   m_TagString: Enemy
@@ -169,6 +170,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-315665450718876307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435562924580466112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb01ab8debc4cc48b50e7073e55e879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - clip: {fileID: 8300000, guid: a04f50e6146d6ea43a139f25c28b278a, type: 3}
+    volume: 0.75
+  - clip: {fileID: 8300000, guid: 79a4dd77f0e01694783696c790cebbc5, type: 3}
+    volume: 0.75
+  - clip: {fileID: 8300000, guid: 3b3c9036492188d44bfc5e8e7e7ccd77, type: 3}
+    volume: 0.75
+  - clip: {fileID: 8300000, guid: b960fad4297047446a0b4be7c4b3c913, type: 3}
+    volume: 0.75
+  sources: []
 --- !u!1 &6667364019349822285
 GameObject:
   m_ObjectHideFlags: 0

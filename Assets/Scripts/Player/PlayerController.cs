@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool blockAnimations;
     private static PlayerController instance;
     private static AnimationState animationState;
+    public AudioManager audioManager;
 
     private Animator animator;
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
         animator = GetComponent<Animator>();
+        audioManager = GetComponent<AudioManager>();
         animationState = new AnimationState(animator);
     }
 
@@ -56,6 +58,8 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + facingDirection * 0.25f, new Vector3(0.75f, 1.25f, 0f), 0f);
+
+        audioManager.Play(Random.Range(2, 4));
 
         foreach (Collider2D collider in colliders)
         {
