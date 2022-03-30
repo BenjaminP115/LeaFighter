@@ -93,10 +93,10 @@ GameObject:
   - component: {fileID: 8427675970562669807}
   - component: {fileID: 8427675970562669804}
   - component: {fileID: 8427675970562669806}
-  - component: {fileID: 8427675970562669801}
   - component: {fileID: 8638565484815979344}
   - component: {fileID: 534660954737410350}
   - component: {fileID: -6232780149924423348}
+  - component: {fileID: -737873954162337651}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Enemy
@@ -112,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8427675970562669805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.129, y: -2.935, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2768893238612967382}
@@ -190,20 +190,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8427675970562669801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427675970562669805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2881e9a53c100194f9c145c734288d24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Orc
-  enemyData: {fileID: 11400000, guid: 203002d76cc7cc34f9677b0a1f6cc94e, type: 2}
 --- !u!61 &8638565484815979344
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -274,3 +260,17 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: b960fad4297047446a0b4be7c4b3c913, type: 3}
     volume: 0.25
   sources: []
+--- !u!114 &-737873954162337651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427675970562669805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2e26240ca52b344a9e634b92160120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Orc
+  enemyData: {fileID: 11400000, guid: 203002d76cc7cc34f9677b0a1f6cc94e, type: 2}

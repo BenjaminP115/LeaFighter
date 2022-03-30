@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41f17de7f8adea42a6b4ec516699b83, type: 3}
   m_Name: WargRider
   m_EditorClassIdentifier: 
-  Health: 30
-  Damage: 20
+  Health: 200
+  Damage: 30
   AttackDistance: 1
-  Xp: 7
+  Xp: 100
   WaitTime: {x: 1, y: 10}
   MoveDistance: 5
   DetectionDistance: 5

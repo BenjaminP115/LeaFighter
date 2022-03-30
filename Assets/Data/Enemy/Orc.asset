@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41f17de7f8adea42a6b4ec516699b83, type: 3}
   m_Name: Orc
   m_EditorClassIdentifier: 
-  Health: 50
-  Damage: 7
+  Health: 80
+  Damage: 14
   AttackDistance: 1
-  Xp: 5
+  Xp: 30
   WaitTime: {x: 2, y: 10}
   MoveDistance: 5
   DetectionDistance: 5

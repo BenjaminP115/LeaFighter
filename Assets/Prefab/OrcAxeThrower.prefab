@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8529262274029956974}
   - component: {fileID: 4480081274500476252}
   - component: {fileID: 6983223460522500678}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: OrcAxeThrower
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414444637255406253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 1.54, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6293899423694360982}

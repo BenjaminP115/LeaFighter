@@ -9341,18 +9341,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1695805447}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &130562385 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 130562390, guid: c8193dbd9e2f4b8488d168fd4bfb6275,
-    type: 3}
-  m_PrefabInstance: {fileID: 683802473}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d84dd2ec3cbac5e4499b090263ee5492, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &137713822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11439,6 +11427,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kills: 0
   xp: 0
+  attrbPoints: 0
+  health: 100
+  damageLevel: 0
+  healthLevel: 0
+  defenseLevel: 0
 --- !u!4 &347584896
 Transform:
   m_ObjectHideFlags: 0
@@ -13872,7 +13865,7 @@ MonoBehaviour:
   enemies:
   - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
       type: 3}
-    enemySpawnAmount: {x: 4, y: 6}
+    enemySpawnAmount: {x: 3, y: 5}
   maxSpawnDistance: 1.81
   maxWalkDistance: 1.81
   maxFollowDistance: 3.01
@@ -15183,7 +15176,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c3b61424cb04096f4825efdafb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+      type: 3}
+    enemySpawnAmount: {x: 5, y: 5}
+  - enemyType: {fileID: 8427675970562669805, guid: bc51a1f509765c14ab9e856585360e59,
+      type: 3}
+    enemySpawnAmount: {x: 1, y: 1}
   maxSpawnDistance: 1.96
   maxWalkDistance: 2.01
   maxFollowDistance: 7
@@ -16306,7 +16305,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c3b61424cb04096f4825efdafb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+      type: 3}
+    enemySpawnAmount: {x: 4, y: 6}
+  - enemyType: {fileID: 8427675970562669805, guid: bc51a1f509765c14ab9e856585360e59,
+      type: 3}
+    enemySpawnAmount: {x: 1, y: 2}
+  - enemyType: {fileID: 414444637255406253, guid: 203849bab73b55a4c86cc9feb111640c,
+      type: 3}
+    enemySpawnAmount: {x: 1, y: 1}
   maxSpawnDistance: 1.96
   maxWalkDistance: 4.25
   maxFollowDistance: 7
@@ -20165,7 +20173,7 @@ MonoBehaviour:
   m_VoxelSize: 0.083333336
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 3276dd013167eba4c84e17dc812536fa, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 7f6023da8a100c745ae453b414518923, type: 2}
 --- !u!4 &1200337287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8228059593326255414, guid: 84d669757910f1f488023c92e71fcad5,
@@ -20767,7 +20775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c3b61424cb04096f4825efdafb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+      type: 3}
+    enemySpawnAmount: {x: 3, y: 3}
   maxSpawnDistance: 1.07
   maxWalkDistance: 1.12
   maxFollowDistance: 3.01
@@ -23610,7 +23621,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c3b61424cb04096f4825efdafb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+      type: 3}
+    enemySpawnAmount: {x: 2, y: 3}
+  - enemyType: {fileID: 8427675970562669805, guid: bc51a1f509765c14ab9e856585360e59,
+      type: 3}
+    enemySpawnAmount: {x: 1, y: 2}
   maxSpawnDistance: 1.94
   maxWalkDistance: 3.7
   maxFollowDistance: 3.01
@@ -29734,7 +29751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -600, y: -300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737240640
@@ -31093,7 +31110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908e43db283b6304997622b8d7ad39b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 130562385}
 --- !u!4 &1872492775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2055102311959635375, guid: a0a71fda412ad0941ab44f1732ea4c1e,
@@ -33175,7 +33191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c3b61424cb04096f4825efdafb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+      type: 3}
+    enemySpawnAmount: {x: 5, y: 7}
   maxSpawnDistance: 1.96
   maxWalkDistance: 3.38
   maxFollowDistance: 7
@@ -33882,7 +33901,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c3b61424cb04096f4825efdafb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+      type: 3}
+    enemySpawnAmount: {x: 1, y: 3}
   maxSpawnDistance: 1.34
   maxWalkDistance: 1.51
   maxFollowDistance: 3.01
@@ -35423,7 +35445,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b97c3b61424cb04096f4825efdafb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
+      type: 3}
+    enemySpawnAmount: {x: 3, y: 5}
+  - enemyType: {fileID: 8427675970562669805, guid: bc51a1f509765c14ab9e856585360e59,
+      type: 3}
+    enemySpawnAmount: {x: 1, y: 2}
   maxSpawnDistance: 1.96
   maxWalkDistance: 3.23
   maxFollowDistance: 7

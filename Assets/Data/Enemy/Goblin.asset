@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   Health: 20
-  Damage: 3
+  Damage: 6
   AttackDistance: 1
-  Xp: 50
+  Xp: 10
   WaitTime: {x: 1, y: 10}
   MoveDistance: 5
   DetectionDistance: 5
