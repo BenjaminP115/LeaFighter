@@ -109,6 +109,7 @@ public class PlayerController : MonoBehaviour
 
         switch (playerAnimationState)
         {
+            case PlayerAnimationState.Death:
             case PlayerAnimationState.Hit:
             case PlayerAnimationState.Attacking:
                 instance.blockAnimations = true;

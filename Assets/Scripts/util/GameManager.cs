@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public int xp;
     public int attrbPoints;
 
+    public int gameLevel = 3;
+
     public float damage => 10 + damageLevel * 5;
     public float defense => 1 + defenseLevel * 0.1f;
     public float maxHealth => 100 + healthLevel * 10;

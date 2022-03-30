@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerController.isDead)
         {
-            PlayerController.ChangeAnimationState(PlayerAnimationState.Death);
+            PlayerController.ChangeAnimationState(PlayerAnimationState.Death, 1);
             return;
         }
 
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collider.gameObject.tag == "Finish")
         {
-            SceneManager.LoadScene("LevelEnd");
+            SceneManager.LoadSceneAsync(2);
         }
     }
 }

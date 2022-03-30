@@ -20,13 +20,13 @@ public class MainMenuUI : MonoBehaviour
     public void StartGame()
     {
         audioManager.Play(0);
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(3);
     }
 
     public void Credits()
     {
         audioManager.Play(0);
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void Quit()

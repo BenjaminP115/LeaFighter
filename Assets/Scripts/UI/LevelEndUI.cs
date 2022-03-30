@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelEndUI : MonoBehaviour
 {
@@ -71,6 +72,15 @@ public class LevelEndUI : MonoBehaviour
             defenseText.text = gm.defense.ToString();
             gm.attrbPoints--;
             pointsText.text = gm.attrbPoints.ToString();
+        }
+    }
+
+    public void Exit()
+    {
+        if (gm.gameLevel <= 4)
+        {
+            gm.gameLevel++;
+            SceneManager.LoadSceneAsync(gm.gameLevel);
         }
     }
 }
