@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collider.gameObject.tag == "Finish")
         {
-            SceneManager.LoadSceneAsync(2);
+            SceneManager.LoadSceneAsync(3);
         }
     }
 }

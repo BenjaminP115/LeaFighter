@@ -77,7 +77,7 @@ public class LevelEndUI : MonoBehaviour
 
     public void Exit()
     {
-        if (gm.gameLevel <= 4)
+        if (gm.gameLevel <= 5)
         {
             gm.gameLevel++;
             SceneManager.LoadSceneAsync(gm.gameLevel);

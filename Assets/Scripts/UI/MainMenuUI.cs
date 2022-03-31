@@ -21,13 +21,13 @@ public class MainMenuUI : MonoBehaviour
         Spawner.enemyAmount = 0;
         PlayerController.isDead = false;
         GameManager.Instance.Reset();
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public void Credits()
     {
         audioManager.Play(0);
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(2);
     }
 
     public void Quit()

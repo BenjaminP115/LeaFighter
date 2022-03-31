@@ -34,6 +34,6 @@ public class GameUI : MonoBehaviour
     public void Quit()
     {
         audioManager.Play(0);
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
     }
 }
