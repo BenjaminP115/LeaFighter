@@ -51,6 +51,8 @@ public class BasicEnemy : MonoBehaviour
 
     protected void Update()
     { 
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
         if (isDead) return;
 
         facingDirection = Vector3.right;
