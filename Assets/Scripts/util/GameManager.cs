@@ -1,3 +1,4 @@
+#define ARCADE
 using UnityEngine;
 
 public class GameManager : MonoBehaviour

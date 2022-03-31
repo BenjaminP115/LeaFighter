@@ -26,6 +26,7 @@ public class GameUI : MonoBehaviour
 
     public void Continue()
     {
+        Time.timeScale = 1;
         audioManager.Play(0);
         menu.SetActive(false);
     }

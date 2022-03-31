@@ -1,3 +1,4 @@
+#define ARCADE
 using System.ComponentModel;
 using UnityEngine;
 
@@ -32,17 +33,38 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+#if ARCADE
+        if (Input.GetKeyDown(KeyCode.M))
+#else
         if (Input.GetKeyDown(KeyCode.Escape))
+#endif
         {
             menu.SetActive(!menu.activeSelf);
+
+            if (Time.timeScale == 0)
+                Time.timeScale = 1;
+            else
+                Time.timeScale = 0;
         }
 
         facingDirection = Vector3.right;
         if (PlayerMovement.spriteRenderer.flipX)
             facingDirection = Vector3.left;
 
-        if (!isAttacking && !isDead && Input.GetButtonDown("Fire1"))
+        if (!isAttacking && !isDead)
+        {
+#if ARCADE
+            if (!Input.GetKey(KeyCode.M) &&
+                !Input.GetKey(KeyCode.W) &&
+                !Input.GetKey(KeyCode.A) &&
+                !Input.GetKey(KeyCode.S) &&
+                !Input.GetKey(KeyCode.D) && Input.anyKey)
+#else
+            if (Input.GetButton("Fire1"))
+#endif
             Attack();
+
+        }
 
         if (gm.level > currLevel)
         {

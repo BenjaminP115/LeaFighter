@@ -21,7 +21,7 @@ public class MainMenuUI : MonoBehaviour
         Spawner.enemyAmount = 0;
         PlayerController.isDead = false;
         GameManager.Instance.Reset();
-        SceneManager.LoadSceneAsync(3);
+        SceneManager.LoadScene(3);
     }
 
     public void Credits()
