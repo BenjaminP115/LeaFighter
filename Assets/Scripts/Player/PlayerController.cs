@@ -39,12 +39,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
 #endif
         {
-            menu.SetActive(!menu.activeSelf);
+            menu.SetActive(menu.activeSelf);
 
-            if (Time.timeScale == 0)
-                Time.timeScale = 1;
-            else
-                Time.timeScale = 0;
+            Time.timeScale = 0;
         }
 
         facingDirection = Vector3.right;
