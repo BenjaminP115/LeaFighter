@@ -1,14 +1,20 @@
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using Debug = UnityEngine.Debug;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 2f;
+    [SerializeField] private float sprintSpeed = 4f;
+
+    private bool isSprinting;
 
     private Tilemap[] tilemaps;
     private Vector3 input = Vector3.zero;
     private PlayerController playerController;
+    private Stopwatch stopwatch = Stopwatch.StartNew();
 
     public static SpriteRenderer spriteRenderer;
 
@@ -25,6 +31,31 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerController.ChangeAnimationState(PlayerAnimationState.Death, 1);
             return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        {
+            if (stopwatch.IsRunning)
+            {
+                stopwatch.Stop();
+
+
+                if (stopwatch.ElapsedMilliseconds <= 1000)
+                {
+                    isSprinting = true;
+                }
+
+                stopwatch = Stopwatch.StartNew();
+            }
+            else
+            {
+                stopwatch.Start();
+            }
+        }
+
+        if (isSprinting && (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D)))
+        {
+            isSprinting = false;
         }
 
         input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f).normalized;
@@ -70,7 +101,11 @@ public class PlayerMovement : MonoBehaviour
                 time = 0;
             }
 
-            transform.Translate(input * movementSpeed * Time.deltaTime);
+            if (isSprinting)
+                transform.Translate(input * sprintSpeed * Time.deltaTime);
+
+            else
+                transform.Translate(input * movementSpeed * Time.deltaTime);
         }
     }
 

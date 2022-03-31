@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject lvlUp;
+    [SerializeField] private GameObject menu;
+
 
     private GameManager gm;
 
@@ -30,6 +32,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            menu.SetActive(!menu.activeSelf);
+        }
+
         facingDirection = Vector3.right;
         if (PlayerMovement.spriteRenderer.flipX)
             facingDirection = Vector3.left;
@@ -94,6 +101,7 @@ public class PlayerController : MonoBehaviour
             gm.health = 0;
             ChangeAnimationState(PlayerAnimationState.Death, 0.4f);
             isDead = true;
+            menu.SetActive(true);
         }
         else
             ChangeAnimationState(PlayerAnimationState.Hit, 0.4f);

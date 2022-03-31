@@ -36,4 +36,17 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void Reset()
+    {
+        healthLevel = 0;
+        damageLevel = 0;
+        defenseLevel = 0;
+
+        health = 100;
+        kills = 0;
+        xp = 0;
+        attrbPoints = 0;
+        gameLevel = 3;
+    }
 }

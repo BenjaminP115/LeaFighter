@@ -20,6 +20,9 @@ public class MainMenuUI : MonoBehaviour
     public void StartGame()
     {
         audioManager.Play(0);
+        Spawner.enemyAmount = 0;
+        PlayerController.isDead = false;
+        GameManager.Instance.Reset();
         SceneManager.LoadSceneAsync(3);
     }
 

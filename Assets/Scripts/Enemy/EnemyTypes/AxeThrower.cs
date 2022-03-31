@@ -7,22 +7,22 @@ public class AxeThrower : DefaultEnemy
 
     [SerializeField] private GameObject axe;
 
-    void Start()
+    protected void Start()
     {
         base.Start();
     }
 
-    private double time;
-    void Update()
+    private double timeBetwwen;
+    protected void Update()
     {
         if (isDead) return;
 
         base.Update();
 
         if (!animationBlock)
-            time += Time.deltaTime;
+            timeBetwwen += Time.deltaTime;
 
-        if (!PlayerController.isDead && time >= throwDelay && player.gameObject.layer == gameObject.layer && (player.position - transform.position).magnitude <= throwDistance)
+        if (!PlayerController.isDead && timeBetwwen >= throwDelay && player.gameObject.layer == gameObject.layer && (player.position - transform.position).magnitude <= throwDistance)
         {
             animationState.ChangeState(name + "_AxeThrow");
             roamBlock = true;
@@ -31,7 +31,7 @@ public class AxeThrower : DefaultEnemy
             animationBlock = true;
             Invoke("ThrowAxe", 0.2f);
             Invoke("StopAxeThrow", 1.1f);
-            time = 0;
+            timeBetwwen = 0;
 
             if (player.position.x - transform.position.x < 0) spriteRenderer.flipX = true;
             else if (player.position.x - transform.position.x > 0) spriteRenderer.flipX = false;
@@ -53,7 +53,7 @@ public class AxeThrower : DefaultEnemy
         animationBlock = false;
     }
 
-    void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
 
