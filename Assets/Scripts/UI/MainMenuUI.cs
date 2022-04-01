@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuUI : MonoBehaviour
 {
     private AudioManager audioManager;
+    private bool inputBlock;
 
     void Start()
     {
@@ -17,6 +18,9 @@ public class MainMenuUI : MonoBehaviour
 
     public void StartGame()
     {
+        if (inputBlock) return;
+
+        inputBlock = true;
         audioManager.Play(0);
         Spawner.enemyAmount = 0;
         PlayerController.isDead = false;

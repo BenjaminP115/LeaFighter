@@ -57,7 +57,7 @@ public class AxeThrower : DefaultEnemy
     {
         base.OnDrawGizmosSelected();
 
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, throwDistance);
     }
 }

@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
 #endif
         {
-            menu.SetActive(menu.activeSelf);
+            menu.SetActive(true);
 
             Time.timeScale = 0;
         }
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
                 !Input.GetKey(KeyCode.W) &&
                 !Input.GetKey(KeyCode.A) &&
                 !Input.GetKey(KeyCode.S) &&
+                !Input.GetKey(KeyCode.Z) &&
                 !Input.GetKey(KeyCode.D) && Input.anyKey)
 #else
             if (Input.GetButton("Fire1"))

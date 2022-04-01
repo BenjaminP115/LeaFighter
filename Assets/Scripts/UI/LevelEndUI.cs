@@ -80,7 +80,7 @@ public class LevelEndUI : MonoBehaviour
         if (gm.gameLevel <= 5)
         {
             gm.gameLevel++;
-            SceneManager.LoadSceneAsync(gm.gameLevel);
+            SceneManager.LoadSceneAsync(5);
         }
     }
 }

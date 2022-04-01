@@ -23,7 +23,7 @@ public class Axe : MonoBehaviour
 
         if (time >= 0.1f)
         {
-            audioManager.Play(Random.Range(0, 2));
+            audioManager.Play(Random.Range(0, 1));
             time = 0;
         }
 

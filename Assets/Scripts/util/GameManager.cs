@@ -3,7 +3,22 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int kills;
-    public int xp;
+
+    private int _xp;
+    public int xp
+    {
+        get { return _xp; }
+        set
+        {
+            _xp = value;
+
+            if (_xp >= levelReq)
+            {
+                _xp -= levelReq;
+                level++;
+            }
+        }
+    }
     public int attrbPoints;
 
     public int gameLevel = 4;
@@ -16,7 +31,9 @@ public class GameManager : MonoBehaviour
     public int damageLevel;
     public int healthLevel;
     public int defenseLevel;
-    public int level => xp / 100;
+
+    public int level;
+    private int levelReq => 100 + 20 * level;
 
     public static GameManager Instance;
 
