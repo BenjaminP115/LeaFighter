@@ -44,6 +44,7 @@ public class AxeThrower : DefaultEnemy
         GameObject spawn = Instantiate(axe, transform.position, Quaternion.identity);
         spawn.GetComponent<Axe>().moveDir = (player.position - transform.position).normalized * 3;
         spawn.layer = gameObject.layer;
+        spawn.GetComponent<SpriteRenderer>().sortingLayerName = LayerMask.LayerToName(gameObject.layer);
     }
 
     private void StopAxeThrow()
