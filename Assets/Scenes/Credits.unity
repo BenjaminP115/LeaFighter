@@ -264,7 +264,7 @@ MonoBehaviour:
   GameTitleWordSpacing: 0
   GameTitleCharacterSpacing: 0
   GameTitleLineSpacing: 70
-  GameTitlefontSize: 50
+  GameTitlefontSize: 35
   GameTitleColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
   SectionLineSpacing: 20
   roleFont: {fileID: 11400000, guid: 246300403b79c5c4eb74ce207e783659, type: 2}
