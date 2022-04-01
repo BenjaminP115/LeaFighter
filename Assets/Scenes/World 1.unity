@@ -11479,13 +11479,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kills: 0
-  xp: 0
   attrbPoints: 0
   gameLevel: 3
   health: 100
   damageLevel: 0
   healthLevel: 0
   defenseLevel: 0
+  level: 0
 --- !u!4 &347584896
 Transform:
   m_ObjectHideFlags: 0
@@ -16365,7 +16365,7 @@ MonoBehaviour:
     enemySpawnAmount: {x: 4, y: 6}
   - enemyType: {fileID: 8427675970562669805, guid: bc51a1f509765c14ab9e856585360e59,
       type: 3}
-    enemySpawnAmount: {x: 1, y: 2}
+    enemySpawnAmount: {x: 2, y: 2}
   - enemyType: {fileID: 414444637255406253, guid: 203849bab73b55a4c86cc9feb111640c,
       type: 3}
     enemySpawnAmount: {x: 1, y: 1}
@@ -23721,11 +23721,11 @@ MonoBehaviour:
   enemies:
   - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
       type: 3}
-    enemySpawnAmount: {x: 2, y: 3}
+    enemySpawnAmount: {x: 5, y: 7}
   - enemyType: {fileID: 8427675970562669805, guid: bc51a1f509765c14ab9e856585360e59,
       type: 3}
     enemySpawnAmount: {x: 1, y: 2}
-  maxSpawnDistance: 1.94
+  maxSpawnDistance: 2.46
   maxWalkDistance: 3.7
   maxFollowDistance: 3.01
 --- !u!1001 &1399383101
@@ -34023,7 +34023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983447379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.13, y: 6.57, z: 0}
+  m_LocalPosition: {x: -10.25, y: 6.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1874404208}
@@ -34044,9 +34044,9 @@ MonoBehaviour:
   enemies:
   - enemyType: {fileID: 4317849357613653415, guid: a79daf807433cfc40bb14acdc0d70502,
       type: 3}
-    enemySpawnAmount: {x: 1, y: 3}
-  maxSpawnDistance: 1.34
-  maxWalkDistance: 1.51
+    enemySpawnAmount: {x: 2, y: 3}
+  maxSpawnDistance: 1.13
+  maxWalkDistance: 1.76
   maxFollowDistance: 3.01
 --- !u!1001 &1988604085
 PrefabInstance:

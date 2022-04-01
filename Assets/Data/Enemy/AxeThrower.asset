@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AxeThrower
   m_EditorClassIdentifier: 
   Health: 150
-  Damage: 20
+  Damage: 16
   AttackDistance: 1
   Xp: 60
   WaitTime: {x: 3, y: 10}

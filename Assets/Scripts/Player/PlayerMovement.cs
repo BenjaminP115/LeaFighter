@@ -87,7 +87,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collider.gameObject.tag == "Finish")
         {
-            SceneManager.LoadSceneAsync(3);
+            if (SceneManager.GetActiveScene().buildIndex == 5)
+                SceneManager.LoadSceneAsync(2);
+            else
+                SceneManager.LoadSceneAsync(3);
         }
     }
 }

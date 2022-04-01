@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   Health: 20
-  Damage: 6
+  Damage: 4
   AttackDistance: 1
   Xp: 10
   WaitTime: {x: 1, y: 10}
