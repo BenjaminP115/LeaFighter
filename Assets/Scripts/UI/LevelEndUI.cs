@@ -13,6 +13,8 @@ public class LevelEndUI : MonoBehaviour
     private AudioManager audioManager;
     private GameManager gm;
 
+    private bool inputBlock;
+
     void Start()
     {
         gm = GameManager.Instance;
@@ -27,7 +29,8 @@ public class LevelEndUI : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.Z))
+            inputBlock = false;
     }
 
     public void Select()
@@ -37,6 +40,10 @@ public class LevelEndUI : MonoBehaviour
 
     public void HealthUp()
     {
+        if (inputBlock) return;
+
+        inputBlock = true;
+
         audioManager.Play(0);
 
         if (gm.attrbPoints > 0)
@@ -50,8 +57,11 @@ public class LevelEndUI : MonoBehaviour
 
     public void DamageUp()
     {
-        audioManager.Play(0);
+        if (inputBlock) return;
 
+        inputBlock = true;
+
+        audioManager.Play(0);
 
         if (gm.attrbPoints > 0)
         {
@@ -64,6 +74,10 @@ public class LevelEndUI : MonoBehaviour
 
     public void DefenseUp()
     {
+        if (inputBlock) return;
+
+        inputBlock = true;
+
         audioManager.Play(0);
 
         if (gm.attrbPoints > 0)
@@ -77,9 +91,14 @@ public class LevelEndUI : MonoBehaviour
 
     public void Exit()
     {
+        if (inputBlock) return;
+
+        inputBlock = true;
+
         if (gm.gameLevel <= 5)
         {
             gm.gameLevel++;
+            Spawner.enemyAmount = 0;
             SceneManager.LoadSceneAsync(5);
         }
     }
