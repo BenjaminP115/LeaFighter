@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
                 !Input.GetKey(KeyCode.A) &&
                 !Input.GetKey(KeyCode.S) &&
                 !Input.GetKey(KeyCode.Z) &&
+                !Input.GetKey(KeyCode.J) &&
                 !Input.GetKey(KeyCode.D) && Input.anyKey)
 #else
             if (Input.GetButton("Fire1"))
